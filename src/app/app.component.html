@@ -1,11 +1,39 @@
-<div>
-  <h1>
-    Witaj na stronie obozu przetrwania
-  </h1>
-  <p>
-    Czas na serwerze to: {{time}}
-  </p>
-</div>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Witaj na stronie obozu przetrwania</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="time">
+    <span >Czas na serwerze to: {{time}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card *ngFor="let msg of messages">
+  <mat-card-title><span>Wiadomość od:</span><span class="author">{{msg.author}}</span></mat-card-title>
+  <mat-card-content>
+    <span>{{msg.content}}</span>
+  </mat-card-content>
+
+</mat-card>
+
+<mat-card >
+  <mat-card-title><span>Twoja wiadomość</span></mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Twoje imię" [(ngModel)]="newMessage.author">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Treść" [(ngModel)]="newMessage.content"></textarea>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-raised-button color="primary" (click)="send()">Wyślij</button>
+  </mat-card-footer>
+</mat-card>
+
+
+
 
 
 
