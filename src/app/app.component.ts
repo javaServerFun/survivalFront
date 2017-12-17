@@ -22,13 +22,13 @@ export class AppComponent {
     this.http.get('/api/time', {responseType: 'text'}).subscribe(data => {
       this.time = data;
     });
-    this.http.get('/api/messages').subscribe((data:Array<Message>) => {
+    this.http.get('/api/messages/java').subscribe((data:Array<Message>) => {
       this.messages = data;
     });
   }
 
   send() {
-    this.http.post('/api/messages', this.newMessage).subscribe((data:Array<Message>) => {
+    this.http.post('/api/messages/java', this.newMessage).subscribe((data:Array<Message>) => {
       this.messages = data;
       this.newMessage.content = '';
     });
