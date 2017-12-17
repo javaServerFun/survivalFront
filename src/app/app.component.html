@@ -5,6 +5,11 @@
   <mat-toolbar-row class="time">
     <span >Czas na serwerze to: {{time}}</span>
   </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button mat-raised-button color="primary" (click)="changeTopic('java')">Java</button>
+    <button mat-raised-button color="primary" (click)="changeTopic('general')">Ogólne</button>
+    <button mat-raised-button color="primary" (click)="changeTopic('test')">Testowy</button>
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-card *ngFor="let msg of messages">
